@@ -1,0 +1,7 @@
+{
+  "kernel_connect_guard": "installed; inherited by child processes",
+  "python_network_and_credential_audit_guard": "installed",
+  "blocked_attempts": [],
+  "real_cli_tests": "not opted in; HARVEY_CODEX_CLI_TESTS absent",
+  "packaging_test": "opted in; HARVEY_PACKAGE_TESTS=1; no-index wheel build"
+}

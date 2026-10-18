@@ -1,0 +1,7 @@
+{
+  "inherited_child_connect_denied": {
+    "errno": 1,
+    "expected": 1
+  },
+  "exit_code": 0
+}

@@ -25,6 +25,7 @@ import aiosmtplib
 
 from harvey.integrations.mail_provider import (
     InboundMessage,
+    MailboxReadError,
     MailProvider,
     SendResult,
     looks_like_bounce,
@@ -90,27 +91,42 @@ class SmtpImapProvider(MailProvider):
         loop = asyncio.get_event_loop()
         try:
             return await loop.run_in_executor(None, self._fetch_unseen, limit)
+        except MailboxReadError:
+            raise
         except Exception as e:
             logger.error(f"IMAP fetch failed: {e}")
-            return []
+            raise MailboxReadError("IMAP inbox read failed") from e
 
     def _fetch_unseen(self, limit: int) -> list[InboundMessage]:
         out: list[InboundMessage] = []
         conn = imaplib.IMAP4_SSL(self.imap_host, self.imap_port)
         try:
-            conn.login(self.imap_user, self.imap_pass)
-            conn.select("INBOX")
-            status, data = conn.search(None, "UNSEEN")
+            status, _ = conn.login(self.imap_user, self.imap_pass)
             if status != "OK":
-                return []
+                raise MailboxReadError("IMAP login failed")
+            status, _ = conn.select("INBOX")
+            if status != "OK":
+                raise MailboxReadError("IMAP inbox selection failed")
+            status, data = conn.search(None, "UNSEEN")
+            if status != "OK" or not data or not isinstance(data[0], bytes):
+                raise MailboxReadError("IMAP inbox search failed")
             ids = data[0].split()[-limit:]
             for msg_id in ids:
-                status, parts = conn.fetch(msg_id, "(RFC822)")
-                if status != "OK" or not parts or not isinstance(parts[0], tuple):
-                    continue
+                status, parts = conn.fetch(msg_id, "(BODY.PEEK[])")
+                if (status != "OK" or not parts or not isinstance(parts[0], tuple)
+                        or len(parts[0]) < 2 or not isinstance(parts[0][1], bytes)):
+                    raise MailboxReadError("IMAP inbox message fetch failed")
                 parsed = self._parse_rfc822(parts[0][1])
-                if parsed:
-                    out.append(parsed)
+                if parsed is None:
+                    raise MailboxReadError("IMAP inbox message was malformed")
+                out.append(parsed)
+            if ids:
+                try:
+                    status, _ = conn.store(b",".join(ids), "+FLAGS", "\\Seen")
+                    if status != "OK":
+                        logger.warning("IMAP read completed but marking messages seen failed")
+                except Exception:
+                    logger.warning("IMAP read completed but marking messages seen failed")
         finally:
             try:
                 conn.logout()

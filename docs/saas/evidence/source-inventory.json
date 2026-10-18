@@ -1,0 +1,105 @@
+{
+  "recorded_at_utc": "2026-10-18T08:18:10.033632+00:00",
+  "source_sha": "e114e95471b1bf155454fca108f0730b66a47a01",
+  "checkout": "/workspace/scratch/bd65ac117d83/harvey-architecture-check",
+  "checks": "Source-only; no application imports, runtime or provider calls",
+  "route_count": 36,
+  "files": [
+    {
+      "path": "harvey/dashboard.py",
+      "sha256": "56767fabc7acfa141fa50ccb6ff8c2fe8c5a799e67afa17a69c959cc54b33305"
+    },
+    {
+      "path": "harvey/state.py",
+      "sha256": "2447611ada5a56a97556f566c77e1a30df476b84d54aa45358dea0add787e4b7"
+    },
+    {
+      "path": "harvey/main.py",
+      "sha256": "08dd7b52fb2a9270c74e9dde7c63eb39207fee4c8e9809d01356ef5a912cbb6f"
+    },
+    {
+      "path": "harvey/brain.py",
+      "sha256": "ec2b51178405a907351f7718511be7d15a8d43baea07df7bee2617483c654f7c"
+    },
+    {
+      "path": "harvey/codex.py",
+      "sha256": "dc9d3907cacd33f9be49b071f0fc415c392caa1dfcbf2070d2ab248b8ac635a5"
+    },
+    {
+      "path": "harvey/config.py",
+      "sha256": "826ae7c94a17d520e602eec55f97efa45dc5646b99727878656dc3c49bcd6629"
+    },
+    {
+      "path": "harvey/paths.py",
+      "sha256": "553612cf787ea0e57b61b5b6d4b2e4d038bcb20fb7dd413d1306a1a86eed5813"
+    },
+    {
+      "path": "harvey/agents/sender.py",
+      "sha256": "2abbd061ae050ab86e7abe394084c855dc86aa803dcb263532ed2cb1abb6940e"
+    },
+    {
+      "path": "harvey/agents/handler.py",
+      "sha256": "7285a1aa6f89d79c3021ac7e0bc4270bbb26f4c2b4774c6f72515a124012b28e"
+    },
+    {
+      "path": "harvey/integrations/mail_provider.py",
+      "sha256": "cedfa1c8e2bbf54af1b75c1a407294c4b1f1bea6084e28cae4ce07a1dc1293a5"
+    },
+    {
+      "path": "harvey/integrations/gmail.py",
+      "sha256": "dc02a8ebb64741fafe180236cfbaf91156ab3899815511dc1a9ca7b34cb4fdf7"
+    },
+    {
+      "path": "harvey/integrations/microsoft.py",
+      "sha256": "4acbdf14b7ebc4ba933e5e39206b0854a3959306d1acc8fd462b19ed6bb7f1f9"
+    },
+    {
+      "path": "harvey/integrations/smtp_mail.py",
+      "sha256": "08c7c5884c53e88f4855d85f2edeb36cff3e16568e7cef708f48ee08058af777"
+    },
+    {
+      "path": "harvey/integrations/calendar.py",
+      "sha256": "0403c6c37cf7dfa2c79cc07a3c5e10ee726dd206a651b238c0c0e0a64b0e3bd8"
+    },
+    {
+      "path": "harvey/web/index.html",
+      "sha256": "34cb691b8c730f2ec6769e372aaa14622c0135b40e516101d3c34d6dcf1993a6"
+    },
+    {
+      "path": "harvey/web/app.js",
+      "sha256": "bf2d6534e2f710d0406ed3e968ef92355779452f22be17d6583a2639fe26ff62"
+    },
+    {
+      "path": "harvey/web/app.css",
+      "sha256": "ff0e73cec9bedfc6de7308c434e342545974cb7c10b734d70e8ebcfb34b15c96"
+    },
+    {
+      "path": "harvey.yaml",
+      "sha256": "fd89993642a4e45f067150c48fef1ba84acf887a52fea31569bdcb5e6208ec20"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "8ca493501d87377b67fb191cf01a70630cd9f1cdfe11f2e726d34b82f1a7f60e"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "8aa6534556809c58ba579f366144d3f6ab0b9f878cf2167b4a12708051390ec2"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "947940a62c0483e43161e15d843953a1c695a12d9b5023cb3c8c230c87769c95"
+    },
+    {
+      "path": "harvey/web/fonts/geist-mono.woff2",
+      "sha256": "5f3d6ad60f29d6cb708414ec6887163d63bf197377ef5417d2483ff31ace6c3b"
+    },
+    {
+      "path": "harvey/web/fonts/geist.woff2",
+      "sha256": "9b6f5ff45b278c744b5f379a2c4ecbaf858a842b8eaf82ac8d21b699ca16c608"
+    },
+    {
+      "path": "harvey/web/fonts/newsreader.woff2",
+      "sha256": "01817351be3edfc1714fe6d60ddea6a22a169a5ebd033b50c7f9495e5d9c386a"
+    }
+  ]
+}

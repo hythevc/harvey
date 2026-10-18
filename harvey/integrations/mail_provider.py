@@ -24,6 +24,10 @@ logger = logging.getLogger("harvey.mail")
 NATIVE_PROVIDERS = ("gmail", "smtp", "microsoft")
 
 
+class MailboxReadError(RuntimeError):
+    pass
+
+
 @dataclass
 class SendResult:
     ok: bool

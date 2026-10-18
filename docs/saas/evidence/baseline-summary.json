@@ -1,0 +1,166 @@
+{
+  "sha": "e114e95471b1bf155454fca108f0730b66a47a01",
+  "counts": {
+    "total": 553,
+    "passed": 532,
+    "skipped": 21,
+    "failed": 0,
+    "errors": 0
+  },
+  "seconds": 64.157,
+  "modules": {
+    "tests.test_brain_no_tools": {
+      "passed": 1,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_brain_provider": {
+      "passed": 41,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_codex": {
+      "passed": 114,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_codex_cli_surface": {
+      "passed": 0,
+      "skipped": 21,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_codex_e2e": {
+      "passed": 26,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_codex_platform": {
+      "passed": 12,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_codex_soak": {
+      "passed": 3,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_collectors_profile": {
+      "passed": 14,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_config": {
+      "passed": 3,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_config_extra": {
+      "passed": 18,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_dashboard_signals": {
+      "passed": 21,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_discover": {
+      "passed": 60,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_email_finder": {
+      "passed": 18,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_email_wiring": {
+      "passed": 6,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_microsoft": {
+      "passed": 65,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_models": {
+      "passed": 7,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_models_extra": {
+      "passed": 20,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_outbox_native": {
+      "passed": 12,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_packaging": {
+      "passed": 1,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_pipeline": {
+      "passed": 17,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_precleared": {
+      "passed": 20,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_signals_export": {
+      "passed": 8,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_state": {
+      "passed": 8,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_state_extra": {
+      "passed": 28,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    },
+    "tests.test_usage": {
+      "passed": 9,
+      "skipped": 0,
+      "failed": 0,
+      "errors": 0
+    }
+  },
+  "skip_reasons": {
+    "set HARVEY_CODEX_CLI_TESTS=1 with the Codex CLI installed": 21
+  }
+}

@@ -27,6 +27,7 @@ import httpx
 from harvey.paths import PROJECT_ROOT
 from harvey.integrations.mail_provider import (
     InboundMessage,
+    MailboxReadError,
     MailProvider,
     SendResult,
     looks_like_bounce,
@@ -126,7 +127,7 @@ class GmailProvider(MailProvider):
         try:
             return resp.json()
         except ValueError:
-            return {}
+            return None
 
     async def send_email(
         self,
@@ -177,18 +178,24 @@ class GmailProvider(MailProvider):
             "GET", "/messages",
             params={"q": "in:inbox -from:me newer_than:7d", "maxResults": limit},
         )
-        if not listing:
-            return []
+        if not isinstance(listing, dict):
+            raise MailboxReadError("Gmail inbox listing failed")
+        messages = listing.get("messages", [])
+        if not isinstance(messages, list):
+            raise MailboxReadError("Gmail inbox listing was malformed")
         out = []
-        for stub in listing.get("messages", [])[:limit]:
+        for stub in messages[:limit]:
+            if not isinstance(stub, dict) or not isinstance(stub.get("id"), str) or not stub["id"]:
+                raise MailboxReadError("Gmail inbox message reference was malformed")
             data = await self._request(
                 "GET", f"/messages/{stub['id']}", params={"format": "full"}
             )
-            if not data:
-                continue
+            if not isinstance(data, dict):
+                raise MailboxReadError("Gmail inbox message fetch failed")
             msg = self._parse_message(data)
-            if msg:
-                out.append(msg)
+            if msg is None:
+                raise MailboxReadError("Gmail inbox message was malformed")
+            out.append(msg)
         return out
 
     @staticmethod
